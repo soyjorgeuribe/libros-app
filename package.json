@@ -1,0 +1,17 @@
+{
+  "name": "backend-libros",
+  "version": "1.0.0",
+  "description": "API CRUD de libros con Node.js, Express y MySQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  }
+}

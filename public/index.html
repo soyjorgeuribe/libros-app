@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f2eb">
+  <title>Biblioteca | Gestión de libros</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <header class="barra-superior">
+    <a class="marca" href="/" aria-label="Biblioteca, inicio">
+      <span class="marca-icono" aria-hidden="true">B</span>
+      <span>Biblioteca<span class="marca-punto">.</span></span>
+    </a>
+    <span class="barra-etiqueta">SISTEMA DE GESTIÓN</span>
+  </header>
+
+  <main class="contenedor">
+    <section class="presentacion">
+      <div>
+        <p class="sobre-titulo">TU ESPACIO DE LECTURA</p>
+        <h1>Un mundo de historias,<br><span>en un solo lugar.</span></h1>
+        <p class="introduccion">Administra tu colección de libros de forma sencilla.</p>
+      </div>
+      <div class="ilustracion-libro" aria-hidden="true">
+        <span class="libro libro-fondo"></span>
+        <span class="libro libro-medio"></span>
+        <span class="libro libro-frente"><i></i><b></b></span>
+      </div>
+    </section>
+
+    <section class="panel panel-formulario" aria-labelledby="tituloFormulario">
+      <div class="encabezado-panel">
+        <div>
+          <p class="sobre-titulo">COLECCIÓN</p>
+          <h2 id="tituloFormulario">Agregar un libro</h2>
+        </div>
+        <span class="numero-seccion">01</span>
+      </div>
+
+      <form id="formLibro" class="formulario">
+        <input type="hidden" id="id">
+        <div class="grupo grupo-titulo">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ej. Cien años de soledad" maxlength="255" required>
+        </div>
+        <div class="grupo">
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" name="autor" placeholder="Nombre del autor" maxlength="150" required>
+        </div>
+        <div class="grupo">
+          <label for="anio">Año de publicación</label>
+          <input type="number" id="anio" name="anio_publicacion" min="1450" required>
+        </div>
+        <div class="grupo">
+          <label for="genero">Género</label>
+          <input type="text" id="genero" name="genero" placeholder="Ej. Novela" maxlength="100" required>
+        </div>
+        <label class="control-disponible">
+          <input type="checkbox" id="disponible" checked>
+          <span class="check-personalizado" aria-hidden="true"></span>
+          <span>Disponible para préstamo</span>
+        </label>
+        <div class="botones">
+          <button class="boton boton-principal" id="btnGuardar" type="submit">
+            <span aria-hidden="true">＋</span> Guardar libro
+          </button>
+          <button class="boton boton-secundario oculto" id="btnCancelar" type="button">Cancelar edición</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel panel-coleccion" aria-labelledby="tituloColeccion">
+      <div class="encabezado-coleccion">
+        <div class="titulo-coleccion">
+          <div>
+            <p class="sobre-titulo">BIBLIOTECA PERSONAL</p>
+            <h2 id="tituloColeccion">Tu colección</h2>
+          </div>
+          <span class="contador" id="contadorLibros">0 libros</span>
+        </div>
+        <div class="filtros">
+          <form id="formBuscar" class="buscador">
+            <label class="solo-lectores" for="filtroGenero">Buscar por género</label>
+            <span aria-hidden="true">⌕</span>
+            <input type="search" id="filtroGenero" placeholder="Buscar por género">
+            <button type="submit" aria-label="Buscar género">Buscar</button>
+          </form>
+          <button class="boton-filtro activo" id="btnTodos" type="button">Todos</button>
+          <button class="boton-filtro" id="btnDisponibles" type="button">Disponibles</button>
+        </div>
+      </div>
+
+      <div class="aviso oculto" id="aviso" role="status"></div>
+      <div class="tabla-contenedor">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">LIBRO</th>
+              <th scope="col">AUTOR</th>
+              <th scope="col">AÑO</th>
+              <th scope="col">GÉNERO</th>
+              <th scope="col">ESTADO</th>
+              <th scope="col"><span class="solo-lectores">Acciones</span></th>
+            </tr>
+          </thead>
+          <tbody id="tablaLibros"></tbody>
+        </table>
+        <div class="estado-vacio oculto" id="estadoVacio">
+          <span aria-hidden="true">▤</span>
+          <h3>Aún no hay libros aquí</h3>
+          <p>Agrega un libro o cambia los filtros para ver tu colección.</p>
+        </div>
+      </div>
+      <p class="nota-tabla">Los cambios se guardan en tu biblioteca.</p>
+    </section>
+    <footer>Hecho para quienes siempre tienen una historia por leer.</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
